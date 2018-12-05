@@ -90,7 +90,7 @@ function init(){
     roundScore = 0;
     activePlayer = 0;
     gamePlaying = true;
-    winningScore = document.getElementById('winning-score').value;
+    winningScore = 100;
 
     document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = '0';
@@ -106,8 +106,17 @@ function init(){
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
 
-    document.querySelector('.btn-set').addEventListener('click', function(){
-        winningScore = document.getElementById('winning-score').value;
+    // document.querySelector('.btn-set').addEventListener('click', function(){
+    //     winningScore = +document.getElementById('winning-score').value;
+    //     console.log(winningScore);
+    // });
+
+     document.querySelector('#winning-score').addEventListener('change', function(){
+        winningScore = +this.value;
+        console.log(winningScore);
     });
-    console.log(winningScore);
+
+    // winningScore = +document.getElementById('winning-score').value;
+    //     console.log(winningScore);
+
 };
