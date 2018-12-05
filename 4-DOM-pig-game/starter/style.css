@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 .clearfix::after {
@@ -80,7 +80,7 @@ body {
     color: #EB4D4D;
     top: -7px;
     right: 10px;
-    
+
 }
 
 .player-current-box {
@@ -152,3 +152,49 @@ i {
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+.input-group {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    top: 520px;
+    transform: translateX(-50%);
+}
+
+.input-field {
+    width: 95px;
+    color: #555;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-set{
+    width: 95px;
+    left: auto;
+    right: 0;
+    transform: none;
+    padding: 5px;
+    background: #EB4D4D;
+    color: #fff;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+

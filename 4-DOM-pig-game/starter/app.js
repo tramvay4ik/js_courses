@@ -9,9 +9,10 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, dice, gamePlaying;
+var scores, roundScore, activePlayer, dice, gamePlaying, winningScore;
 
 init();
+console.log(winningScore);
 
 document.querySelector('.btn-roll').addEventListener('click', function(){
     if(gamePlaying) {
@@ -29,6 +30,14 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
         if( dice !== 1){
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+
+            // var prevScore = dice;
+
+            // console.log(prevScore);
+
+            // if( dice == prevScore){
+            //     nextPlayer();
+            // }
         }
         else{
             nextPlayer();
@@ -47,7 +56,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 
         // check if win
 
-        if (scores[activePlayer] >= 20){
+        if (scores[activePlayer] >= winningScore){
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -74,7 +83,6 @@ function nextPlayer(){
     document.querySelector('.dice').style.display = 'none';
 }
 
-
 document.querySelector('.btn-new').addEventListener('click', init);
 
 function init(){
@@ -82,6 +90,7 @@ function init(){
     roundScore = 0;
     activePlayer = 0;
     gamePlaying = true;
+    winningScore = document.getElementById('winning-score').value;
 
     document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = '0';
@@ -95,4 +104,10 @@ function init(){
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('winner');
     document.querySelector('.player-1-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');
+
+    document.querySelector('.btn-set').addEventListener('click', function(){
+        winningScore = document.getElementById('winning-score').value;
+    });
+    console.log(winningScore);
 };
